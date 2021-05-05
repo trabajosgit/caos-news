@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cabecera fija</title>
+
+        <link rel="stylesheet" href="style.css">
+</head>
+  
+ <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script>
+var current = 0;
+var imagenes = new Array();
+ 
+$(document).ready(function() {
+    var numImages = 6;
+    if (numImages <= 3) {
+        $('.right-arrow').css('display', 'none');
+        $('.left-arrow').css('display', 'none');
+    }
+ 
+    $('.left-arrow').on('click',function() {
+        if (current > 0) {
+            current = current - 1;
+        } else {
+            current = numImages - 3;
+        }
+ 
+        $(".carrusel").animate({"left": -($('#product_'+current).position().left)}, 600);
+ 
+        return false;
+    });
+ 
+    $('.left-arrow').on('hover', function() {
+        $(this).css('opacity','0.5');
+    }, function() {
+        $(this).css('opacity','1');
+    });
+ 
+    $('.right-arrow').on('hover', function() {
+        $(this).css('opacity','0.5');
+    }, function() {
+        $(this).css('opacity','1');
+    });
+ 
+    $('.right-arrow').on('click', function() {
+        if (numImages > current + 3) {
+            current = current+1;
+        } else {
+            current = 0;
+        }
+ 
+        $(".carrusel").animate({"left": -($('#product_'+current).position().left)}, 600);
+ 
+        return false;
+    }); 
+ });
+</script>
+
+<body>
+	
+	<header id="main-header">
+		
+		<a id="logo-header" href="#">
+            <img src  ="img/logo.png"  style="height: 120 px;" width="100 %" height="60" alt="" border="1" align="left">
+			<h1> El mejor noticiero del mundo </h1>
+			 
+		</a> <!-- / #logo-header -->
+
+		<nav>
+			<ul>
+			   <li><a href="#">Inicio</a></li>
+
+               
+               <li><a href="inicio_sesion.html">Login</a></li>
+               <li><a href="contacto.html">Contacto</a></li>
+			
+		</nav><!-- / nav -->
+
+	</header><!-- / #main-header -->
+
+	
+	<section id="main-content">
+	
+
+   
+		<article>
+				<article>
+		<header>
+			<h1>Las principales noticias</h1>
+		</header>
+                  
+    <div class="contenedor">
+       <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Busca">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Buscar</button>
+   <ul class="slider">
+     <li id="slide1">
+     
+      <img src="img/1.jpg"/>
+       <h1>Caso Tomás Bravo: Defensoría Pública pedirá sobreseimiento definitivo de tío abuelo del menor </h1>
+      
+      
+      <a href="nacionales.html">Ver más</a>
+    </li>
+   
+    <li id="slide2">
+      
+      <img src="img/2.jpg "/>
+      <h2> Al menos 17 fallecidos y más de 800 heridos en cinco días de disturbios en Colombia</h2>
+      <a href="internacionales.html">Ver más</a>
+    </li>
+    <li id="slide3">
+      <img src="img/3.jpg "/>
+      <h1>Premios Nacionales de Periodismo advierten deterioro de la libertad de expresión</h1>
+      
+      <a href="marceloulloa.html">Ver más</a>
+    </li>
+  </ul>
+  
+  <ul class="menu">
+    <li>
+      <a href="#slide1">1</a>
+    </li>
+    <li>
+      <a href="#slide2">2</a>
+    </li>
+     <li>
+      <a href="#slide3">3</a>
+    </li>
+  </ul>
+			
+			
+			
+		<div id="carrusel">
+    <a href="#" class="left-arrow"><img src="images/left-arrow.png" /></a>
+    <a href="#" class="right-arrow"><img src="images/right-arrow.png" /></a>
+    <div class="carrusel">
+        <div class="product" id="product_0">
+          <img src="gallery/nacional.jpg" width="195" height="100" />
+              <a href="nacionales.html">Nacional</a>
+   
+            
+        </div>
+        <div class="product" id="product_1">
+            <img src="gallery/internacional.jpg" width="195" height="100" />
+          <a href="internacionales.html">Internacional</a>
+            
+        </div>
+        <div class="product" id="product_2">
+            <img src="gallery/juanmoreno.jpg" width="195" height="100" />
+              <a href="juanmoreno.html">Periodista Juan Moreno</a>
+            
+        </div>
+        <div class="product" id="product_3">
+            <img src="gallery/marceloulloa.jpg" width="195" height="100" />
+           <a href="marceloulloa.html">Periodista Marcelo Ulloa</a>
+            
+        </div>
+      
+    </div>
+</div>
+			</div>
+			
+		</article> <!-- /article -->
+	
+	</section> <!-- / #main-content -->
+
+	
+	
+	<footer id="main-footer">
+		<p>&copy; 2020 <a>Desarrollado por Caos News</a></p>
+	</footer> <!-- / #main-footer -->
+
+	
+</body>
+</html>

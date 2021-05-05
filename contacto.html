@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cabecera fija</title>
+
+        <link rel="stylesheet" href="_contacto.css">
+</head>
+
+<body>
+	
+	<header id="main-header">
+		
+		<a id="logo-header" href="#">
+            <img src  ="img/logo.png"  style="height: 120 px;" width="100 %" height="60" alt="" border="1" align="left">
+			<h1> El mejor noticiero del mundo </h1>
+			 
+		</a> <!-- / #logo-header -->
+
+		<nav>
+			<ul>
+				<li><a href="#">Inicio</a></li>
+
+              <li><a href="#">Noticias </a></li>
+               <li><a href="#">Login</a></li>
+               <li><a href="#">Contacto</a></li>
+			
+		</nav><!-- / nav -->
+
+	</header><!-- / #main-header -->
+
+	
+	<section id="main-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="bienvenida">
+            <h2>Formulario de contacto</h2>
+            <p>Rellene este formulario para que nos coloquemos en contacto con usted a la brevedad</p>
+        </section>
+        <!-- seccion del formulario  -->
+
+        <script>
+            
+
+            $(document).ready(function() {
+                $("#formu").validate({
+                    rules:{
+                        txtRut: "required",
+                        txtNombreCompleto: "required",
+                        txtUsuario: {
+                            required : true,
+                            minlength : 5
+                        },
+                        txtPass2:{
+                            required: true,
+                            minlength: 5,
+                            equalTo: "#txtPass1"
+                        }
+                    },
+                    messages : {
+                        txtUsuario:"por favor ingresar un dato minimo 5 caracteres",
+                        txtPass2:{
+                            required: "la paswword es requerida",
+                            minlength: "minimo de largo de 5 caracteres",
+                            equalTo:"las contraseñas no son iguales"
+                        }
+                    }
+                });
+            });
+        </script>
+        <script>
+           /* $(document).ready(function() {
+                
+                $("#formu").submit(function() {
+
+                    var mensaje ="";
+                    var largo =$("#txtNombreCompleto").val().trim().length;
+
+                    if (largo==0) {
+                        mensaje="el nombre no posee datos";
+                    }
+
+                    if (mensaje !="") {
+                        $("#mensaje").html(mensaje);
+                        event.preventDefault(); // cancela el evento de "submit"
+                    }
+                });
+    
+            });*/
+        </script>
+        <section id="formulario">
+            <form class="form-registro" action="" method="post" id="formu">
+                <h2 class="form-titulo">Por favor rellene todos los campos</h2>
+                <div class="contenedor-input">
+                    <input class="col-sm" type="text" name="txtRut" id="txtRut" placeholder="ingrese rut" >
+                    <input class="col-sm" type="text" name="txtNombreCompleto" id="txtNombreCompleto" placeholder="ingrese nombre y apellido" >
+                    <input class="col-sm" type="date" name="txtFechaNaci" id="txtFechaNaci" required>
+                    <input class="col-sm" type="email" name="txtEmail" id="" placeholder="ingrese email" required minlength="8">
+                    <label class="col-sm" for="txtUsuario">Usuario</label>
+                    <input class="col-sm" type="text" name="txtUsuario" id="" placeholder="ingrese usuario">
+                    <label class="col-sm" for="txtPass1">Password:</label>
+                    <input class="col-sm" type="password" name="txtPass1" id="txtPass1" placeholder="ingrese password" required minlength="5" maxlength="10">
+                    <label class="col-sm" for="txtPass2">Confirmar Password:</label>
+                    <input class="col-sm" type="password" name="txtPass2" id="txtPass1" placeholder="ingrese password" required minlength="5" maxlength="10">
+                    <input class="col-sm" type="text" name="txtFono" id="" placeholder="ingrese fono">
+
+                    <input class="btn-registro" type="submit" id="enviar" value="Enviar">
+                    <input class="btn-registro" type="reset"  id="limpiar" value="Limpiar">
+                </div>
+            </form>
+        </section>
+        <div id="mensaje"></div>
+    </main>
+	<footer id="main-footer">
+		<p>&copy; 2020 <a>Desarrollado por Caos News</a></p>
+	</footer> <!-- / #main-footer -->
+
+	
+</body>
+</html>  
